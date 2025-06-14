@@ -1,12 +1,7 @@
 payload:
-  - DOMAIN-SUFFIX,embymv.link
-  - DOMAIN-SUFFIX,embymv.me
-  - DOMAIN-SUFFIX,embymv.tk
-  - DOMAIN-SUFFIX,pornemby.com
-  - DOMAIN-SUFFIX,tanhuatv.site
-  - DOMAIN-SUFFIX,emby.69yun69.com
-  - DOMAIN-SUFFIX,gy.meowfly.de
-  - DOMAIN-SUFFIX,embycf.rjemby.com
-  - DOMAIN-SUFFIX,emby.bangumi.ca
-  - DOMAIN-SUFFIX,media.nijigem.by
-  - DOMAIN-SUFFIX,emby.cn2gias.uk
+  ## cursor
+  - DOMAIN-SUFFIX,cursor.sh
+  - DOMAIN-SUFFIX,cursor-cdn.com
+  - DOMAIN-SUFFIX,cursorapi.com
+  - DOMAIN-SUFFIX,cursor.com
+  - DOMAIN-SUFFIX,workos.com
