@@ -1,12 +1,27 @@
 payload:
+  # 桃子服
   - DOMAIN-SUFFIX,embymv.link
   - DOMAIN-SUFFIX,embymv.me
   - DOMAIN-SUFFIX,embymv.tk
+  # pornemby
   - DOMAIN-SUFFIX,pornemby.com
+  # 探花TV-30天
   - DOMAIN-SUFFIX,tanhuatv.site
+  # 69云 DPX
   - DOMAIN-SUFFIX,emby.69yun69.com
+  # 飞了个喵
   - DOMAIN-SUFFIX,gy.meowfly.de
+  # 入机
   - DOMAIN-SUFFIX,embycf.rjemby.com
+  # NYA
   - DOMAIN-SUFFIX,emby.bangumi.ca
+  # 二次元
   - DOMAIN-SUFFIX,media.nijigem.by
+  # 守候影院
   - DOMAIN-SUFFIX,emby.cn2gias.uk
+  # 105度
+  - DOMAIN-SUFFIX,ciallo.party
+  # Edge of Darkness
+  - DOMAIN-SUFFIX,edge.staryuki.com
+  # 稳健服
+  - DOMAIN-SUFFIX,emby.wenjian.de
