@@ -5,7 +5,7 @@ payload:
   - DOMAIN-SUFFIX,embymv.tk
   # pornemby
   - DOMAIN-SUFFIX,pornemby.com
-  # 探花TV-30天
+  # 探花TV
   - DOMAIN-SUFFIX,tanhuatv.site
   # 69云 DPX
   - DOMAIN-SUFFIX,emby.69yun69.com
@@ -25,3 +25,15 @@ payload:
   - DOMAIN-SUFFIX,edge.staryuki.com
   # 稳健服
   - DOMAIN-SUFFIX,emby.wenjian.de
+  # 肥牛
+  - DOMAIN-SUFFIX,emby.feiniu.lol
+  # Zox
+  - DOMAIN-SUFFIX,zoxfree.3767483.xyz
+  # 游骑兵
+  - DOMAIN-SUFFIX,emby.heisi.org
+  # Zn的影视库
+  - DOMAIN-SUFFIX,emby.zn.al
+  # Doubon
+  - DOMAIN-SUFFIX,onatoshi.114514.quest
+  # UHD
+  - DOMAIN-SUFFIX,v1.uhdnow.com
