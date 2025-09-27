@@ -1,10 +1,49 @@
-#!name= 直播吧去广告
+#!name= 直播吧三层广告屏蔽
+#!desc= 三层屏蔽策略：0)主配置层-禁用广告总开关和SDK 1)广告配置层-禁用所有广告位 2)内容层-清空具体广告数据，实现史上最彻底的广告屏蔽
+#!author= Assistant
+#!homepage= https://github.com/
 #!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AdBlock.png
+#!system = iOS,iPadOS
+#!system_version = 13.0
 #!loon_version = 3.2.1(372)
+#!tag = 去广告,直播吧,三层屏蔽,主配置拦截,SDK屏蔽
+#!date = 2025-01-27
+
+[General]
+# 跳过代理的域名，提高访问速度
+skip-proxy = 47.111.8.123, 118.178.168.156, a.qiumibao.com
+
+[Rule]
+# 屏蔽其他广告域名
+DOMAIN,ccc-x.jd.com,REJECT
+DOMAIN,im-x.jd.com,REJECT
+DOMAIN,ggck.qiumibao.com,REJECT
+DOMAIN,win.gdt.qq.com,REJECT
+DOMAIN,api-access.pangolin-sdk-toutiao.com,REJECT
+
+[Rewrite]
+# 屏蔽京东DSP广告
+^https?://ccc-x\.jd\.com/dsp/.* reject
+^https?://im-x\.jd\.com/dsp/.* reject
+
+# 屏蔽腾讯广告
+^https?://win\.gdt\.qq\.com/win_notice\.fcg.* reject
+
+# 屏蔽头条广告
+^https?://api-access\.pangolin-sdk-toutiao\.com/api/ad/.* reject
+
+# 屏蔽其他追踪URL
+^https?://ggck\.qiumibao\.com/redirect/.* reject
 
 [Script]
-# 多重手段屏蔽广告
-http-response ^https?://(47\.111\.8\.123|118\.178\.168\.156):8091/allOne\.php script-path = https://raw.githubusercontent.com/miangit/Agent/refs/heads/master/Loon/Scripts/zhibo8.js, requires-body = true, timeout = 10, tag = 直播吧多重广告屏蔽
+# 第零层：主配置拦截 - 禁用广告总开关和所有SDK
+http-response ^https?://a\.qiumibao\.com/ios/config/ script-path = zhibo8-layer0-main-config.js, requires-body = true, timeout = 10, tag = 直播吧主配置拦截
+
+# 第一层：广告配置拦截 - 禁用所有广告位
+http-response ^https?://a\.qiumibao\.com/activities/config\.php script-path = zhibo8-layer1-ad-config.js, requires-body = true, timeout = 10, tag = 直播吧广告配置拦截
+
+# 第二层：广告内容拦截 - 清空具体广告数据
+http-response ^https?://(47\.111\.8\.123|118\.178\.168\.156):8091/allOne\.php script-path = zhibo8-layer2-content-filter.js, requires-body = true, timeout = 10, tag = 直播吧广告内容拦截
 
 [MITM]
-hostname = 47.111.8.123, 118.178.168.156
+hostname = 47.111.8.123, 118.178.168.156, a.qiumibao.com
