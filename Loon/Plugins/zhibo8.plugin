@@ -37,13 +37,13 @@ DOMAIN,api-access.pangolin-sdk-toutiao.com,REJECT
 
 [Script]
 # 第零层：主配置拦截 - 禁用广告总开关和所有SDK
-http-response ^https?://a\.qiumibao\.com/ios/config/ script-path = zhibo8-layer0-main-config.js, requires-body = true, timeout = 10, tag = 直播吧主配置拦截
+http-response ^https?://a\.qiumibao\.com/ios/config/ script-path = https://raw.githubusercontent.com/miangit/Agent/refs/heads/master/Loon/Scripts/zhibo8/zhibo8-layer0-main-config.js, requires-body = true, timeout = 10, tag = 直播吧主配置拦截
 
 # 第一层：广告配置拦截 - 禁用所有广告位
-http-response ^https?://a\.qiumibao\.com/activities/config\.php script-path = zhibo8-layer1-ad-config.js, requires-body = true, timeout = 10, tag = 直播吧广告配置拦截
+http-response ^https?://a\.qiumibao\.com/activities/config\.php script-path = https://raw.githubusercontent.com/miangit/Agent/refs/heads/master/Loon/Scripts/zhibo8/zhibo8-layer1-ad-config.js, requires-body = true, timeout = 10, tag = 直播吧广告配置拦截
 
 # 第二层：广告内容拦截 - 清空具体广告数据
-http-response ^https?://(47\.111\.8\.123|118\.178\.168\.156):8091/allOne\.php script-path = zhibo8-layer2-content-filter.js, requires-body = true, timeout = 10, tag = 直播吧广告内容拦截
+http-response ^https?://(47\.111\.8\.123|118\.178\.168\.156):8091/allOne\.php script-path = https://raw.githubusercontent.com/miangit/Agent/refs/heads/master/Loon/Scripts/zhibo8/zhibo8-layer2-content-filter.js, requires-body = true, timeout = 10, tag = 直播吧广告内容拦截
 
 [MITM]
 hostname = 47.111.8.123, 118.178.168.156, a.qiumibao.com
