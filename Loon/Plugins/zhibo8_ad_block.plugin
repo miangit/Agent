@@ -10,7 +10,7 @@
 
 [Script]
 # 修改广告状态为禁用
-http-response ^https?://47\.111\.8\.123:8091/allOne\.php script-path = zhibo8-ad-block.js, requires-body = true, timeout = 10, tag = 直播吧广告禁用
+http-response ^https?://47\.111\.8\.123:8091/allOne\.php script-path = https://raw.githubusercontent.com/miangit/Agent/refs/heads/master/Loon/Scripts/zhibo8-ad-block.js, requires-body = true, timeout = 10, tag = 直播吧广告禁用
 
 [MITM]
 hostname = 47.111.8.123
