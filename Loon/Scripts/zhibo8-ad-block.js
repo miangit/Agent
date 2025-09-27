@@ -15,6 +15,32 @@ if (url.includes("/allOne.php") && method === "POST") {
         let body = $response.body;
         let adData = JSON.parse(body);
         
+        console.log("📊 开始处理广告数据，数据类型: " + typeof adData);
+        
+        // 检查是否包含关键广告标识，如果是则直接返回空数组
+        if (Array.isArray(adData) && adData.length > 0) {
+            const firstAd = adData[0];
+            const isDefinitelyAd = (
+                firstAd.shop === "tanx_bid_sdk" ||
+                firstAd.model === "sdk_tanx" ||
+                firstAd.type === "tanx_na_feed" ||
+                (firstAd.spare && firstAd.spare.shop === "jd-rtb") ||
+                firstAd.name?.includes("tanx_bid_sdk") ||
+                firstAd.name?.includes("jd-rtb")
+            );
+            
+            if (isDefinitelyAd) {
+                console.log("🚫 检测到确定的广告内容，直接返回空数组");
+                const emptyResponse = {
+                    body: JSON.stringify([]),
+                    headers: $response.headers,
+                    status: $response.status || 200
+                };
+                $done(emptyResponse);
+                return;
+            }
+        }
+        
         // 如果是数组，遍历修改每个广告的关键字段
         if (Array.isArray(adData)) {
             adData.forEach(ad => {
@@ -182,6 +208,44 @@ if (url.includes("/allOne.php") && method === "POST") {
                 if (ad.source_name) {
                     ad.source_name = "";
                     console.log("🏷️ 已清空广告来源标识");
+                }
+                
+                // 处理特殊的SDK类型
+                if (ad.model) {
+                    ad.model = "";
+                    console.log("🔧 已清空SDK模型");
+                }
+                
+                if (ad.shop) {
+                    ad.shop = "";
+                    console.log("🏪 已清空商店标识");
+                }
+                
+                // 处理pre_request_sdks数组
+                if (ad.pre_request_sdks && Array.isArray(ad.pre_request_sdks)) {
+                    ad.pre_request_sdks = [];
+                    console.log("📱 已清空预请求SDK列表");
+                }
+                
+                // 禁用自动播放
+                if (ad.autoplay !== undefined) {
+                    ad.autoplay = false;
+                    console.log("⏸️ 已禁用自动播放");
+                }
+                
+                // 清空详情标记
+                if (ad.detail_mark) {
+                    ad.detail_mark = "";
+                    console.log("🏷️ 已清空详情标记");
+                }
+                
+                // 处理ban配置
+                if (ad.ban && typeof ad.ban === "object") {
+                    ad.ban.img = [];
+                    ad.ban.url = [];
+                    ad.ban.words = [];
+                    ad.ban.secret_words = "";
+                    console.log("🚫 已重置ban配置");
                 }
                 
                 // 修改状态为disable
