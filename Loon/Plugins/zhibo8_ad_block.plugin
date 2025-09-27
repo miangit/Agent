@@ -1,16 +1,16 @@
-#!name= 直播吧广告禁用
-#!desc= 通过修改广告状态为disable来禁用直播吧app中的开屏广告，更温和的去广告方式
+#!name= 直播吧多重广告屏蔽
+#!desc= 通过清空广告图片、链接、设置显示次数为0等多重手段彻底屏蔽直播吧开屏广告
 #!author= Assistant
 #!homepage= https://github.com/
 #!icon= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AdBlock.png
 #!system = iOS
 #!system_version = 13.0
 #!loon_version = 3.2.1(372)
-#!tag = 去广告,直播吧,开屏广告,状态修改
+#!tag = 去广告,直播吧,开屏广告,多重屏蔽
 
 [Script]
-# 修改广告状态为禁用
-http-response ^https?://(47\.111\.8\.123|118\.178\.168\.156):8091/allOne\.php script-path = https://raw.githubusercontent.com/miangit/Agent/refs/heads/master/Loon/Scripts/zhibo8-ad-block.js, requires-body = true, timeout = 10, tag = 直播吧广告禁用
+# 多重手段屏蔽广告
+http-response ^https?://(47\.111\.8\.123|118\.178\.168\.156):8091/allOne\.php script-path = https://raw.githubusercontent.com/miangit/Agent/refs/heads/master/Loon/Scripts/zhibo8-ad-block.js, requires-body = true, timeout = 10, tag = 直播吧多重广告屏蔽
 
 [MITM]
 hostname = 47.111.8.123, 118.178.168.156
