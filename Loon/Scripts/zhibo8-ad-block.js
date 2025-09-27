@@ -64,7 +64,127 @@ if (url.includes("/allOne.php") && method === "POST") {
                     console.log("🔗 已清空深度链接");
                 }
                 
-                // 修改状态为disable (备用方案)
+                // 处理metarial字段
+                if (ad.metarial && ad.metarial.enable === "enable") {
+                    ad.metarial.enable = "disable";
+                    console.log("🎨 已禁用素材");
+                }
+                
+                // 处理spare备用广告数据
+                if (ad.spare && typeof ad.spare === "object") {
+                    console.log("🔄 发现备用广告数据，开始处理...");
+                    
+                    // 清空备用广告图片
+                    if (ad.spare.img) {
+                        ad.spare.img = "";
+                        console.log("🖼️ 已清空备用广告图片");
+                    }
+                    
+                    // 清空备用广告链接
+                    if (ad.spare.url) {
+                        ad.spare.url = "";
+                        console.log("🔗 已清空备用广告链接");
+                    }
+                    
+                    // 设置备用广告显示次数为0
+                    if (ad.spare.showTimes) {
+                        ad.spare.showTimes = 0;
+                        console.log("📊 已设置备用广告显示次数为0");
+                    }
+                    
+                    // 设置备用广告时长为0
+                    if (ad.spare.duration) {
+                        ad.spare.duration = 0;
+                        console.log("⏱️ 已设置备用广告时长为0");
+                    }
+                    
+                    // 清空备用广告追踪URL
+                    if (ad.spare.show_ping_urls && Array.isArray(ad.spare.show_ping_urls)) {
+                        ad.spare.show_ping_urls = [];
+                        console.log("👁️ 已清空备用广告显示追踪URLs");
+                    }
+                    
+                    if (ad.spare.click_ping_urls && Array.isArray(ad.spare.click_ping_urls)) {
+                        ad.spare.click_ping_urls = [];
+                        console.log("👆 已清空备用广告点击追踪URLs");
+                    }
+                    
+                    // 清空备用广告深度链接
+                    if (ad.spare.deeplink && ad.spare.deeplink.link) {
+                        ad.spare.deeplink.link = "";
+                        console.log("🔗 已清空备用广告深度链接");
+                    }
+                    
+                    // 修改备用广告状态
+                    if (ad.spare.status === "enable") {
+                        ad.spare.status = "disable";
+                        console.log("🔧 已修改备用广告状态为disable");
+                    }
+                }
+                
+                // 清空竞价追踪URL
+                if (ad.bid_price_ping_urls && Array.isArray(ad.bid_price_ping_urls)) {
+                    ad.bid_price_ping_urls = [];
+                    console.log("💰 已清空竞价追踪URLs");
+                }
+                
+                // 禁用客户端竞价
+                if (ad.is_client_bidding === true) {
+                    ad.is_client_bidding = false;
+                    console.log("🚫 已禁用客户端竞价");
+                }
+                
+                // 处理msg_style样式控制
+                if (ad.msg_style && typeof ad.msg_style === "object") {
+                    // 隐藏广告图片
+                    if (ad.msg_style.is_hide_img !== undefined) {
+                        ad.msg_style.is_hide_img = 1;
+                        console.log("🖼️ 已设置隐藏广告图片");
+                    }
+                    
+                    // 隐藏优惠券
+                    if (ad.msg_style.is_show_coupons !== undefined) {
+                        ad.msg_style.is_show_coupons = false;
+                        console.log("🎫 已隐藏优惠券显示");
+                    }
+                    
+                    // 隐藏图标
+                    if (ad.msg_style.is_hide_icon !== undefined) {
+                        ad.msg_style.is_hide_icon = true;
+                        console.log("🏷️ 已隐藏广告图标");
+                    }
+                    
+                    // 隐藏VIP入口
+                    if (ad.msg_style.is_show_vip_entry !== undefined) {
+                        ad.msg_style.is_show_vip_entry = 0;
+                        console.log("👑 已隐藏VIP入口");
+                    }
+                    
+                    // 重置社交互动数据
+                    if (ad.msg_style.likes !== undefined) {
+                        ad.msg_style.likes = 0;
+                        console.log("👍 已重置点赞数为0");
+                    }
+                    
+                    if (ad.msg_style.dislikes !== undefined) {
+                        ad.msg_style.dislikes = 0;
+                        console.log("👎 已重置踩数为0");
+                    }
+                }
+                
+                // 清空广告比例设置
+                if (ad.ratio) {
+                    ad.ratio = "";
+                    console.log("📐 已清空广告比例设置");
+                }
+                
+                // 清空广告来源标识
+                if (ad.source_name) {
+                    ad.source_name = "";
+                    console.log("🏷️ 已清空广告来源标识");
+                }
+                
+                // 修改状态为disable
                 if (ad.status === "enable") {
                     ad.status = "disable";
                     console.log("🔧 已修改广告状态为disable");
