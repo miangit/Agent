@@ -1,4 +1,6 @@
 #!name= 直播吧去广告
+#!desc= 四重屏蔽策略：0)主配置层-禁用广告总开关和SDK 1)广告配置层-禁用所有广告位 2)内容层-清空具体广告数据 3)弹窗屏蔽-禁用更新/通知/登录等各种弹窗
+#!icon= https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Zhibo8.png
 
 [General]
 # 跳过代理的域名，提高访问速度
