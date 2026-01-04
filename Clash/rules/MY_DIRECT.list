@@ -1,7 +1,11 @@
-## 直连 
+# 直连 
 
 DOMAIN-SUFFIX,zhibo8.com
 DOMAIN-SUFFIX,hxty9.com
 DOMAIN-SUFFIX,cn-sec.com
 DOMAIN-SUFFIX,api.miboby.top
-DOMAIN-SUFFIX,zhibo8.com
+
+## 唔语
+DOMAIN,pa.wuyti.top
+DOMAIN,api.miguu.top
+DOMAIN,api.mibook.top
