@@ -13,3 +13,6 @@ DOMAIN,api.mibook.top
 ## MONO
 DOMAIN,mono.findvisionapp.com
 DOMAIN,proxy.weisenjoy.com
+
+## 小姨子emby
+DOMAIN-SUFFIX,emby.yun
